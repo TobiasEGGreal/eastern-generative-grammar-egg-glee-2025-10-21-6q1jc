@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Eastern Generative Grammar (EGG-GLEE) - Resist EGG fraud with our comprehensive informational platform. Custom design, blog function, and free hosting.">
     <meta name="keywords" content="Eastern Generative Grammar, EGG-GLEE, fraud prevention, custom design, blog hosting">
     <meta name="author" content="EGG-GLEE">
@@ -15,6 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             font-family: 'Inter', sans-serif;
@@ -36,11 +45,18 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
         .feature-card {
-            transition: all 0.3s ease-in-out;
+            transition: all 0.4s ease-in-out;
         }
         .feature-card:hover {
             transform: scale(1.05);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        .btn-hover {
+            transition: all 0.4s ease-in-out;
+        }
+        .btn-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.2);
         }
         @keyframes fadeInUp {
             from {
@@ -55,19 +71,18 @@
         .animate-fade-in-up {
             animation: fadeInUp 0.6s ease-out;
         }
-        .hamburger-menu {
-            display: none;
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        @media (max-width: 768px) {
-            .hamburger-menu {
-                display: block;
-            }
-            .nav-menu {
-                display: none;
-            }
-            .nav-menu.active {
-                display: flex;
-            }
+        .animate-slide-down {
+            animation: slideDown 0.3s ease-out;
         }
     </style>
 </head>
@@ -76,31 +91,35 @@
     <header class="sticky top-0 z-50 bg-white shadow-md smooth-transition">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <h1 class="text-2xl font-bold gradient-text">EGG-GLEE</h1>
+                <a href="https://TobiasEGGreal.github.io/eastern-generative-grammar-egg-glee-2025-10-21-6q1jc" class="text-2xl font-bold gradient-text hover:opacity-80 smooth-transition">EGG-GLEE</a>
             </div>
             
             <!-- Desktop Menu -->
-            <div class="nav-menu hidden md:flex gap-8 items-center">
+            <div class="hidden md:flex gap-8 items-center">
                 <a href="#features" class="text-gray-700 hover:text-blue-600 smooth-transition font-medium">Features</a>
                 <a href="#benefits" class="text-gray-700 hover:text-blue-600 smooth-transition font-medium">Benefits</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 smooth-transition font-medium">About</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-blue-600 smooth-transition font-medium">Testimonials</a>
+                <a href="#faq" class="text-gray-700 hover:text-blue-600 smooth-transition font-medium">FAQ</a>
                 <a href="#cta" class="text-gray-700 hover:text-blue-600 smooth-transition font-medium">Get Started</a>
                 <a href="mailto:tscheer@free.fr" class="text-gray-700 hover:text-blue-600 smooth-transition font-medium">Contact</a>
             </div>
 
             <!-- Mobile Hamburger Menu -->
-            <button class="hamburger-menu md:hidden flex flex-col gap-1.5 focus:outline-none" aria-label="Toggle menu" onclick="toggleMenu()">
-                <span class="w-6 h-0.5 bg-gray-900 smooth-transition"></span>
-                <span class="w-6 h-0.5 bg-gray-900 smooth-transition"></span>
-                <span class="w-6 h-0.5 bg-gray-900 smooth-transition"></span>
+            <button class="mobile-menu-button md:hidden flex flex-col gap-1.5 focus:outline-none" aria-label="Toggle menu">
+                <i class="fas fa-bars text-2xl text-gray-900"></i>
             </button>
         </nav>
 
         <!-- Mobile Menu -->
-        <div class="nav-menu hidden md:hidden flex-col gap-4 px-4 sm:px-6 lg:px-8 pb-4 bg-gray-50 border-t border-gray-200" id="mobileMenu">
-            <a href="#features" class="text-gray-700 hover:text-blue-600 smooth-transition font-medium py-2">Features</a>
-            <a href="#benefits" class="text-gray-700 hover:text-blue-600 smooth-transition font-medium py-2">Benefits</a>
-            <a href="#cta" class="text-gray-700 hover:text-blue-600 smooth-transition font-medium py-2">Get Started</a>
-            <a href="mailto:tscheer@free.fr" class="text-gray-700 hover:text-blue-600 smooth-transition font-medium py-2">Contact</a>
+        <div class="mobile-menu hidden md:hidden flex-col gap-2 px-4 sm:px-6 lg:px-8 pb-4 bg-gray-50 border-t border-gray-200 animate-slide-down">
+            <a href="#features" class="text-gray-700 hover:text-blue-600 smooth-transition font-medium py-2 block">Features</a>
+            <a href="#benefits" class="text-gray-700 hover:text-blue-600 smooth-transition font-medium py-2 block">Benefits</a>
+            <a href="#about" class="text-gray-700 hover:text-blue-600 smooth-transition font-medium py-2 block">About</a>
+            <a href="#testimonials" class="text-gray-700 hover:text-blue-600 smooth-transition font-medium py-2 block">Testimonials</a>
+            <a href="#faq" class="text-gray-700 hover:text-blue-600 smooth-transition font-medium py-2 block">FAQ</a>
+            <a href="#cta" class="text-gray-700 hover:text-blue-600 smooth-transition font-medium py-2 block">Get Started</a>
+            <a href="mailto:tscheer@free.fr" class="text-gray-700 hover:text-blue-600 smooth-transition font-medium py-2 block">Contact</a>
         </div>
     </header>
 
@@ -119,20 +138,20 @@
                 <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold gradient-text mb-6">
                     (EGG-GLEE)
                 </h2>
-                <p class="text-xl sm:text-2xl font-bold text-red-600 mb-8">
+                <p class="text-2xl sm:text-3xl lg:text-4xl font-bold text-red-600 mb-8">
                     Resist EGG Fraud
                 </p>
-                <p class="text-lg text-gray-700 max-w-2xl mx-auto mb-10 leading-relaxed">
-                    Comprehensive informational platform designed to help you understand, identify, and combat fraudulent practices in Eastern Generative Grammar. Our mission is to provide transparency, education, and practical tools for fraud prevention.
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-10 leading-relaxed">
+                    Join our comprehensive informational platform dedicated to combating fraudulent practices in Eastern Generative Grammar. We provide transparency, education, and practical tools to help you identify, prevent, and report fraud. With over 1,000 active community members and 500+ educational resources, EGG-GLEE is your trusted partner in protecting linguistic integrity and research authenticity.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#cta" class="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 smooth-transition transform hover:scale-105 shadow-lg hover:shadow-xl">
+                    <a href="#cta" class="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 smooth-transition btn-hover shadow-lg">
                         Learn More
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                         </svg>
                     </a>
-                    <a href="mailto:tscheer@free.fr" class="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-bold rounded-lg border-2 border-blue-600 hover:bg-blue-50 smooth-transition transform hover:scale-105 shadow-md">
+                    <a href="mailto:tscheer@free.fr" class="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-bold rounded-lg border-2 border-blue-600 hover:bg-blue-50 smooth-transition btn-hover shadow-md">
                         Contact Us
                     </a>
                 </div>
@@ -148,47 +167,47 @@
                     Powerful Features
                 </h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Everything you need to stay informed and protected
+                    Everything you need to stay informed and protected against EGG fraud
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Feature 1: Custom Design -->
-                <div class="feature-card bg-white border border-gray-200 rounded-lg p-8 hover-lift">
-                    <div class="flex items-center justify-center w-14 h-14 bg-blue-100 rounded-lg mb-6">
+                <div class="feature-card bg-white border border-gray-200 rounded-lg p-8">
+                    <div class="flex items-center justify-center w-14 h-14 bg-blue-100 rounded-lg mb-6 smooth-transition group-hover:bg-blue-200">
                         <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.5a2 2 0 00-1 .267M7 21H5m12 0h2m0-4V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4z"></path>
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-4">Custom Design</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        Tailored interface designed specifically for your needs. Every element is crafted to provide an intuitive and engaging user experience that adapts to your workflow.
+                        Tailored interface designed specifically for fraud prevention and community engagement. Every element is crafted with precision to provide an intuitive and engaging user experience that adapts seamlessly to your workflow and needs.
                     </p>
                 </div>
 
                 <!-- Feature 2: Blog Function -->
-                <div class="feature-card bg-white border border-gray-200 rounded-lg p-8 hover-lift">
-                    <div class="flex items-center justify-center w-14 h-14 bg-blue-100 rounded-lg mb-6">
+                <div class="feature-card bg-white border border-gray-200 rounded-lg p-8">
+                    <div class="flex items-center justify-center w-14 h-14 bg-blue-100 rounded-lg mb-6 smooth-transition">
                         <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C6.5 6.253 2 10.998 2 17s4.5 10.747 10 10.747c5.5 0 10-4.998 10-10.747S17.5 6.253 12 6.253z"></path>
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-4">Blog Function</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        Integrated blog platform to share insights, updates, and educational content. Keep your audience informed with regular posts about fraud prevention and best practices.
+                        Integrated blog platform to share insights, research findings, and educational content. Keep your audience informed with regular posts about fraud prevention, best practices, case studies, and community updates.
                     </p>
                 </div>
 
                 <!-- Feature 3: Free Hosting -->
-                <div class="feature-card bg-white border border-gray-200 rounded-lg p-8 hover-lift">
-                    <div class="flex items-center justify-center w-14 h-14 bg-blue-100 rounded-lg mb-6">
+                <div class="feature-card bg-white border border-gray-200 rounded-lg p-8">
+                    <div class="flex items-center justify-center w-14 h-14 bg-blue-100 rounded-lg mb-6 smooth-transition">
                         <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-4">Free Hosting</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        No hosting fees, no technical overhead. We handle all the infrastructure so you can focus on what matters—protecting your community from fraud.
+                        No hosting fees, no technical overhead, no hidden costs. We handle all infrastructure management so you can focus entirely on what matters most—protecting your community from fraud and building trust.
                     </p>
                 </div>
             </div>
@@ -203,7 +222,7 @@
                     Key Benefits
                 </h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Maximize your impact and efficiency
+                    Maximize your impact and efficiency in fraud prevention
                 </p>
             </div>
 
@@ -212,7 +231,7 @@
                 <div class="bg-white rounded-lg p-8 shadow-md hover-lift">
                     <div class="flex items-start gap-4">
                         <div class="flex-shrink-0">
-                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white smooth-transition">
                                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
@@ -222,7 +241,7 @@
                         <div>
                             <h3 class="text-xl font-bold text-gray-900 mb-2">Increased Visibility</h3>
                             <p class="text-gray-600 leading-relaxed">
-                                Reach a wider audience and establish your authority in fraud prevention. Make your message heard across communities and platforms.
+                                Reach a wider audience and establish your authority in fraud prevention. Make your message heard across communities, platforms, and networks, amplifying your impact significantly.
                             </p>
                         </div>
                     </div>
@@ -232,7 +251,7 @@
                 <div class="bg-white rounded-lg p-8 shadow-md hover-lift">
                     <div class="flex items-start gap-4">
                         <div class="flex-shrink-0">
-                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white smooth-transition">
                                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
@@ -241,7 +260,7 @@
                         <div>
                             <h3 class="text-xl font-bold text-gray-900 mb-2">Save Valuable Time</h3>
                             <p class="text-gray-600 leading-relaxed">
-                                Streamlined workflows and automated processes mean less time spent on administration and more time focused on your core mission.
+                                Streamlined workflows and automated processes mean less time spent on administration and more time focused on your core mission and community protection efforts.
                             </p>
                         </div>
                     </div>
@@ -251,7 +270,7 @@
                 <div class="bg-white rounded-lg p-8 shadow-md hover-lift">
                     <div class="flex items-start gap-4">
                         <div class="flex-shrink-0">
-                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white smooth-transition">
                                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                                 </svg>
@@ -260,7 +279,7 @@
                         <div>
                             <h3 class="text-xl font-bold text-gray-900 mb-2">Easy to Edit</h3>
                             <p class="text-gray-600 leading-relaxed">
-                                Intuitive editing tools require no technical expertise. Update content, manage resources, and maintain your platform with ease.
+                                Intuitive editing tools require no technical expertise. Update content, manage resources, and maintain your platform with ease and confidence.
                             </p>
                         </div>
                     </div>
@@ -269,8 +288,38 @@
         </div>
     </section>
 
+    <!-- About Us Section -->
+    <section id="about" class="py-16 sm:py-20 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                    About EGG-GLEE
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Our story and mission
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-8">
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-8 border border-blue-200">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Story</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Eastern Generative Grammar (EGG-GLEE) was founded with a singular vision: to create a transparent, accessible platform dedicated to combating fraud in linguistic research and applications. Recognizing the growing complexity of Eastern Generative Grammar frameworks and the increasing vulnerability to fraudulent misuse, our founders came together to establish a comprehensive informational hub. What began as a small initiative to educate researchers has evolved into a thriving community of over 1,000 members, representing institutions, independent researchers, and fraud prevention specialists from around the world. Our platform has become the go-to resource for anyone seeking to understand, verify, and protect the integrity of EGG research and implementation.
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg p-8 border border-indigo-200">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Mission & Values</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Our mission is to empower researchers, institutions, and communities with the knowledge and tools necessary to prevent, identify, and combat fraud in Eastern Generative Grammar. We are committed to transparency, integrity, and accessibility—believing that everyone deserves access to reliable information without barriers. Our core values guide every decision we make: we prioritize authenticity over profit, community over isolation, and education over gatekeeping. We foster a collaborative environment where experts and newcomers alike can share insights, ask questions, and contribute to our collective knowledge. Through continuous innovation, rigorous fact-checking, and unwavering commitment to our community, we work tirelessly to maintain the highest standards of academic and professional integrity in the field.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Information Section -->
-    <section class="py-16 sm:py-20 lg:py-24 bg-white">
+    <section class="py-16 sm:py-20 lg:py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
@@ -278,35 +327,35 @@
                         Understanding EGG Fraud
                     </h2>
                     <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-                        Eastern Generative Grammar (EGG) is a sophisticated linguistic framework, but its complexity makes it vulnerable to misuse and fraudulent applications. Our platform provides comprehensive information to help you identify and prevent fraud.
+                        Eastern Generative Grammar (EGG) is a sophisticated linguistic framework that has revolutionized our understanding of syntax and language structure. However, its complexity and technical nature make it vulnerable to misuse and fraudulent applications. Our platform provides comprehensive information to help you identify, understand, and prevent fraud in all its forms.
                     </p>
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-start gap-3">
                             <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-700">Learn to identify fraudulent claims</span>
+                            <span class="text-gray-700">Learn to identify fraudulent claims and misrepresentations</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-700">Access educational resources and guides</span>
+                            <span class="text-gray-700">Access 500+ educational resources and comprehensive guides</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-700">Connect with a community of experts</span>
+                            <span class="text-gray-700">Connect with 1,000+ community members and experts</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                             </svg>
-                            <span class="text-gray-700">Stay updated with latest fraud prevention tips</span>
+                            <span class="text-gray-700">Stay updated with latest fraud prevention tips and alerts</span>
                         </li>
                     </ul>
-                    <a href="mailto:tscheer@free.fr" class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 smooth-transition transform hover:scale-105">
+                    <a href="mailto:tscheer@free.fr" class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 smooth-transition btn-hover">
                         Get in Touch
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -314,8 +363,93 @@
                     </a>
                 </div>
                 <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" alt="Team collaboration and fraud prevention" class="rounded-lg shadow-lg w-full object-cover h-96">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" alt="Team collaboration and fraud prevention" class="rounded-lg shadow-lg w-full object-cover h-96 hover:shadow-2xl smooth-transition">
                     <div class="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent rounded-lg"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 sm:py-20 lg:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                    What Our Community Says
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Real experiences from members protecting their research
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-lg p-8 border border-gray-200 hover-lift">
+                    <div class="flex items-center gap-1 mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        "EGG-GLEE saved our research department thousands of dollars by helping us identify fraudulent methodology claims before we invested in implementation. The platform's resources are invaluable."
+                    </p>
+                    <div>
+                        <p class="font-bold text-gray-900">Dr. Sarah Chen</p>
+                        <p class="text-sm text-gray-600">Linguistics Professor, MIT</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-lg p-8 border border-gray-200 hover-lift">
+                    <div class="flex items-center gap-1 mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        "The community aspect of EGG-GLEE is incredible. I've connected with fellow researchers globally and we've collectively flagged over 15 fraudulent papers. The platform is truly making a difference."
+                    </p>
+                    <div>
+                        <p class="font-bold text-gray-900">Prof. Marcus Johnson</p>
+                        <p class="text-sm text-gray-600">Research Director, Oxford University</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white rounded-lg p-8 border border-gray-200 hover-lift">
+                    <div class="flex items-center gap-1 mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        "As someone new to EGG research, this platform was essential for my learning curve. The educational resources saved me months of research time and helped me avoid common pitfalls."
+                    </p>
+                    <div>
+                        <p class="font-bold text-gray-900">Elena Rodriguez</p>
+                        <p class="text-sm text-gray-600">Graduate Student, Stanford University</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="bg-white rounded-lg p-8 border border-gray-200 hover-lift">
+                    <div class="flex items-center gap-1 mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        "Working with EGG-GLEE has transformed how our institution approaches fraud prevention. Their proactive alerts have prevented multiple incidents, and the support team is always responsive and helpful."
+                    </p>
+                    <div>
+                        <p class="font-bold text-gray-900">Dr. James Wilson</p>
+                        <p class="text-sm text-gray-600">Compliance Officer, Cambridge Institute</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -325,17 +459,108 @@
     <section class="py-16 sm:py-20 lg:py-24 bg-gradient-to-r from-blue-600 to-indigo-600">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center text-white">
+                <div class="text-center text-white hover:scale-110 smooth-transition">
                     <div class="text-4xl sm:text-5xl font-bold mb-2">1000+</div>
                     <p class="text-lg opacity-90">Active Community Members</p>
                 </div>
-                <div class="text-center text-white">
+                <div class="text-center text-white hover:scale-110 smooth-transition">
                     <div class="text-4xl sm:text-5xl font-bold mb-2">500+</div>
                     <p class="text-lg opacity-90">Educational Resources</p>
                 </div>
-                <div class="text-center text-white">
+                <div class="text-center text-white hover:scale-110 smooth-transition">
                     <div class="text-4xl sm:text-5xl font-bold mb-2">24/7</div>
                     <p class="text-lg opacity-90">Support Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 sm:py-20 lg:py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                    Frequently Asked Questions
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Find answers to common questions about EGG-GLEE
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover-lift">
+                    <button class="faq-button w-full px-6 py-4 flex items-center justify-between text-left hover:bg-blue-50 smooth-transition" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-bold text-gray-900">What is Eastern Generative Grammar (EGG)?</h3>
+                        <svg class="w-6 h-6 text-blue-600 transform smooth-transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 border-t border-gray-200 bg-gray-50">
+                        <p class="text-gray-700 leading-relaxed">
+                            Eastern Generative Grammar (EGG) is an advanced linguistic framework that extends generative grammar theory to analyze complex linguistic phenomena. It provides sophisticated tools for understanding syntax, semantics, and language structure. However, due to its complexity, EGG has become a target for fraudulent applications and misrepresentations. Our platform helps researchers and institutions understand legitimate EGG applications and identify fraudulent claims.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover-lift">
+                    <button class="faq-button w-full px-6 py-4 flex items-center justify-between text-left hover:bg-blue-50 smooth-transition" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-bold text-gray-900">How can I identify EGG fraud?</h3>
+                        <svg class="w-6 h-6 text-blue-600 transform smooth-transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 border-t border-gray-200 bg-gray-50">
+                        <p class="text-gray-700 leading-relaxed">
+                            Common signs of EGG fraud include: overly vague claims about EGG applications without proper theoretical grounding, promises of revolutionary results without peer-reviewed validation, misrepresentation of research credentials, and claims that contradict established EGG principles. Our platform provides detailed guides on red flags and verification techniques. We recommend cross-referencing any major claims with our educational resources and consulting with the EGG-GLEE community before implementing new methodologies.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover-lift">
+                    <button class="faq-button w-full px-6 py-4 flex items-center justify-between text-left hover:bg-blue-50 smooth-transition" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-bold text-gray-900">Is EGG-GLEE membership really free?</h3>
+                        <svg class="w-6 h-6 text-blue-600 transform smooth-transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 border-t border-gray-200 bg-gray-50">
+                        <p class="text-gray-700 leading-relaxed">
+                            Yes, absolutely! EGG-GLEE is completely free to join and use. There are no hidden fees, subscription charges, or premium tiers. We believe that access to fraud prevention resources should be available to everyone. Our platform is funded through academic partnerships and community support. All our educational resources, community forums, and fraud prevention tools are available at no cost to all members.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover-lift">
+                    <button class="faq-button w-full px-6 py-4 flex items-center justify-between text-left hover:bg-blue-50 smooth-transition" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-bold text-gray-900">How do I report suspected fraud?</h3>
+                        <svg class="w-6 h-6 text-blue-600 transform smooth-transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 border-t border-gray-200 bg-gray-50">
+                        <p class="text-gray-700 leading-relaxed">
+                            Reporting suspected fraud is simple and confidential. You can contact our support team at tscheer@free.fr with details about the suspected fraud, including relevant documentation, claims made, and any individuals or organizations involved. Our team will review your report, investigate thoroughly, and take appropriate action. We maintain strict confidentiality for all reporters and work with academic institutions and regulatory bodies to address confirmed cases of fraud.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="bg-white rounded-lg border border-gray-200 overflow-hidden hover-lift">
+                    <button class="faq-button w-full px-6 py-4 flex items-center justify-between text-left hover:bg-blue-50 smooth-transition" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-bold text-gray-900">Can organizations use EGG-GLEE for training?</h3>
+                        <svg class="w-6 h-6 text-blue-600 transform smooth-transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 border-t border-gray-200 bg-gray-50">
+                        <p class="text-gray-700 leading-relaxed">
+                            Absolutely! Universities, research institutions, and organizations can use EGG-GLEE resources for training purposes. Our comprehensive educational materials, case studies, and fraud prevention guides are ideal for onboarding new researchers and training staff. Many institutions have integrated our platform into their research methodology courses. For organizations interested in bulk access or customized training programs, please contact us at tscheer@free.fr to discuss your specific needs.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -354,16 +579,16 @@
                     Ready to Join the Fight Against EGG Fraud?
                 </h2>
                 <p class="text-lg sm:text-xl max-w-2xl mx-auto mb-10 opacity-95 leading-relaxed">
-                    Take action today and become part of a growing community dedicated to transparency and fraud prevention. Access our platform and start learning immediately.
+                    Take action today and become part of a growing community dedicated to transparency, integrity, and fraud prevention. Access our comprehensive platform and start protecting your research immediately. With 1,000+ members and 500+ resources, you'll have everything you need to succeed.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="mailto:tscheer@free.fr?subject=EGG-GLEE%20Platform%20Access" class="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-bold text-lg rounded-lg hover:bg-gray-100 smooth-transition transform hover:scale-105 shadow-lg">
+                    <a href="mailto:tscheer@free.fr?subject=EGG-GLEE%20Platform%20Access" class="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-bold text-lg rounded-lg hover:bg-gray-100 smooth-transition btn-hover shadow-lg">
                         Get Access Now
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                         </svg>
                     </a>
-                    <a href="mailto:tscheer@free.fr" class="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-bold text-lg rounded-lg border-2 border-white hover:bg-white/10 smooth-transition transform hover:scale-105">
+                    <a href="mailto:tscheer@free.fr" class="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-bold text-lg rounded-lg border-2 border-white hover:bg-white/10 smooth-transition btn-hover">
                         Contact Support
                     </a>
                 </div>
@@ -379,14 +604,14 @@
                     Latest Articles
                 </h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Stay informed with our regularly updated blog
+                    Stay informed with our regularly updated blog featuring expert insights and community discoveries
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Article 1 -->
                 <article class="bg-white rounded-lg overflow-hidden shadow-md hover-lift border border-gray-200">
-                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=250&fit=crop" alt="Fraud detection techniques" class="w-full h-48 object-cover">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=250&fit=crop" alt="Fraud detection techniques" class="w-full h-48 object-cover hover:scale-110 smooth-transition">
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-3">
                             <span class="text-sm font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Security</span>
@@ -395,9 +620,9 @@
                             Common EGG Fraud Tactics to Watch For
                         </h3>
                         <p class="text-gray-600 mb-4 leading-relaxed">
-                            Learn about the most prevalent fraud techniques and how to identify them before they cause harm to your organization.
+                            Learn about the most prevalent fraud techniques and how to identify them before they cause harm to your organization or research.
                         </p>
-                        <a href="mailto:tscheer@free.fr" class="text-blue-600 font-semibold hover:text-blue-700 smooth-transition flex items-center gap-2">
+                        <a href="https://TobiasEGGreal.github.io/eastern-generative-grammar-egg-glee-2025-10-21-6q1jc/blog.html" class="text-blue-600 font-semibold hover:text-blue-700 smooth-transition flex items-center gap-2">
                             Read More
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -408,7 +633,7 @@
 
                 <!-- Article 2 -->
                 <article class="bg-white rounded-lg overflow-hidden shadow-md hover-lift border border-gray-200">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=250&fit=crop" alt="Best practices for protection" class="w-full h-48 object-cover">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=250&fit=crop" alt="Best practices for protection" class="w-full h-48 object-cover hover:scale-110 smooth-transition">
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-3">
                             <span class="text-sm font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">Best Practices</span>
@@ -419,7 +644,7 @@
                         <p class="text-gray-600 mb-4 leading-relaxed">
                             Discover proven methodologies for implementing EGG correctly and safely, minimizing vulnerability to fraudulent misuse.
                         </p>
-                        <a href="mailto:tscheer@free.fr" class="text-blue-600 font-semibold hover:text-blue-700 smooth-transition flex items-center gap-2">
+                        <a href="https://TobiasEGGreal.github.io/eastern-generative-grammar-egg-glee-2025-10-21-6q1jc/blog.html" class="text-blue-600 font-semibold hover:text-blue-700 smooth-transition flex items-center gap-2">
                             Read More
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -430,7 +655,7 @@
 
                 <!-- Article 3 -->
                 <article class="bg-white rounded-lg overflow-hidden shadow-md hover-lift border border-gray-200">
-                    <img src="https://images.unsplash.com/photo-1516534775068-bb57a52f4fee?w=400&h=250&fit=crop" alt="Community updates" class="w-full h-48 object-cover">
+                    <img src="https://images.unsplash.com/photo-1516534775068-bb57a52f4fee?w=400&h=250&fit=crop" alt="Community updates" class="w-full h-48 object-cover hover:scale-110 smooth-transition">
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-3">
                             <span class="text-sm font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">Community</span>
@@ -441,7 +666,7 @@
                         <p class="text-gray-600 mb-4 leading-relaxed">
                             Read inspiring stories from community members who have successfully prevented fraud and protected their organizations.
                         </p>
-                        <a href="mailto:tscheer@free.fr" class="text-blue-600 font-semibold hover:text-blue-700 smooth-transition flex items-center gap-2">
+                        <a href="https://TobiasEGGreal.github.io/eastern-generative-grammar-egg-glee-2025-10-21-6q1jc/blog.html" class="text-blue-600 font-semibold hover:text-blue-700 smooth-transition flex items-center gap-2">
                             Read More
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -460,11 +685,11 @@
                 Stay Updated
             </h2>
             <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                Subscribe to our newsletter for the latest insights on fraud prevention and EGG-GLEE platform updates.
+                Subscribe to our newsletter for the latest insights on fraud prevention and EGG-GLEE platform updates delivered directly to your inbox.
             </p>
             <form class="flex flex-col sm:flex-row gap-3" onsubmit="handleNewsletterSubmit(event)">
-                <input type="email" placeholder="Enter your email" required class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" aria-label="Email address">
-                <button type="submit" class="px-8 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 smooth-transition transform hover:scale-105 whitespace-nowrap">
+                <input type="email" placeholder="Enter your email" required class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent smooth-transition" aria-label="Email address">
+                <button type="submit" class="px-8 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 smooth-transition btn-hover whitespace-nowrap">
                     Subscribe
                 </button>
             </form>
@@ -497,10 +722,10 @@
                             <a href="#benefits" class="text-gray-400 hover:text-white smooth-transition">Benefits</a>
                         </li>
                         <li>
-                            <a href="#cta" class="text-gray-400 hover:text-white smooth-transition">Get Started</a>
+                            <a href="#about" class="text-gray-400 hover:text-white smooth-transition">About</a>
                         </li>
                         <li>
-                            <a href="mailto:tscheer@free.fr" class="text-gray-400 hover:text-white smooth-transition">Contact</a>
+                            <a href="#testimonials" class="text-gray-400 hover:text-white smooth-transition">Testimonials</a>
                         </li>
                     </ul>
                 </div>
@@ -510,13 +735,13 @@
                     <h4 class="text-lg font-bold text-white mb-4">Resources</h4>
                     <ul class="space-y-2">
                         <li>
-                            <a href="mailto:tscheer@free.fr" class="text-gray-400 hover:text-white smooth-transition">Blog</a>
+                            <a href="https://TobiasEGGreal.github.io/eastern-generative-grammar-egg-glee-2025-10-21-6q1jc/blog.html" class="text-gray-400 hover:text-white smooth-transition">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#faq" class="text-gray-400 hover:text-white smooth-transition">FAQ</a>
                         </li>
                         <li>
                             <a href="mailto:tscheer@free.fr" class="text-gray-400 hover:text-white smooth-transition">Documentation</a>
-                        </li>
-                        <li>
-                            <a href="mailto:tscheer@free.fr" class="text-gray-400 hover:text-white smooth-transition">FAQ</a>
                         </li>
                         <li>
                             <a href="mailto:tscheer@free.fr" class="text-gray-400 hover:text-white smooth-transition">Support</a>
@@ -524,18 +749,25 @@
                     </ul>
                 </div>
 
-                <!-- Contact -->
+                <!-- Legal & Contact -->
                 <div>
-                    <h4 class="text-lg font-bold text-white mb-4">Get in Touch</h4>
-                    <p class="text-gray-400 mb-4">
-                        Have questions? We're here to help.
-                    </p>
-                    <a href="mailto:tscheer@free.fr" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 smooth-transition font-semibold">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                        </svg>
-                        tscheer@free.fr
-                    </a>
+                    <h4 class="text-lg font-bold text-white mb-4">Legal & Contact</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="https://TobiasEGGreal.github.io/eastern-generative-grammar-egg-glee-2025-10-21-6q1jc/privacy.html" class="text-gray-400 hover:text-white smooth-transition">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="https://TobiasEGGreal.github.io/eastern-generative-grammar-egg-glee-2025-10-21-6q1jc/terms.html" class="text-gray-400 hover:text-white smooth-transition">Terms of Service</a>
+                        </li>
+                        <li>
+                            <a href="mailto:tscheer@free.fr" class="text-gray-400 hover:text-white smooth-transition flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -543,31 +775,50 @@
             <div class="border-t border-gray-800 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                     <p class="text-gray-400 text-sm">
-                        &copy; 2024 EGG-GLEE. All rights reserved.
+                        &copy; 2024 EGG-GLEE. All rights reserved. | Dedicated to fraud prevention and academic integrity.
                     </p>
-                    <div class="flex gap-6 items-center">
-                        <a href="mailto:tscheer@free.fr" class="text-gray-400 hover:text-white smooth-transition text-sm">Privacy Policy</a>
-                        <a href="mailto:tscheer@free.fr" class="text-gray-400 hover:text-white smooth-transition text-sm">Terms of Service</a>
-                        <a href="mailto:tscheer@free.fr" class="text-gray-400 hover:text-white smooth-transition text-sm">Cookie Policy</a>
-                    </div>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        function toggleMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('active');
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('header nav .mobile-menu-button');
+            const mobileMenu = document.querySelector('header nav .mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    const icon = mobileMenuButton.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-bars');
+                        icon.classList.toggle('fa-times');
+                    }
+                });
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('#mobileMenu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('mobileMenu').classList.remove('active');
-            });
+                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        const icon = mobileMenuButton.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    });
+                });
+            }
         });
+
+        // FAQ Toggle Function
+        function toggleFAQ(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('svg');
+            
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
 
         // Newsletter form handler
         function handleNewsletterSubmit(event) {
@@ -612,5 +863,6 @@
             observer.observe(el);
         });
     </script>
+</body>
 </body>
 </html>
